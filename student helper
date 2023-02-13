@@ -1,0 +1,1147 @@
+#include<iostream>
+#include<string> 
+#include<cmath>// for sqrt() & pow() ect..
+#include<cstdlib> // for hader file & namespace
+#include<cctype> // for islower() & isupper() ect..
+#include<fstream> // files read/write library
+
+
+void menu(){
+	char heart = 3; // --> for decoration puropuses
+    cout<<"    \t \t \t         "<<heart<<" "<<heart<<" "<<heart<<" "<<" welcome to student's helper   "<<heart<<" "<<heart<<" "<<heart<<" "<<endl;
+	cout<<"choose a porgram: "<<endl<<endl<<endl<<
+	"              "<<"1- having a math problem?"<<"                             "<< "2- You want a cv?"<<endl<<
+	"              "<<"3- want a dictinory?"<<"                                  "<<"4- you want a study table?"<<endl<<
+	"              "<<"5- You can't choose your major?"<<"                       "<<"6- want to save money?"<<endl<<
+	"              "<<"7- can't understand a lesson? "<<"                        "<<"8- the devolpers"; }
+	
+	 
+	 
+bool alphpet( string alpha[] [2], int size ){//sort function
+	string temp;
+	for(int x = 0 ; x<size ; x++){
+		for(int y = x+1 ; y<size ; y++){
+			if(alpha[y][0]<alpha[x][0]){
+				temp = alpha[y][0];
+				alpha[y][0]=alpha[x][0];
+				alpha[x][0]=temp; }}}	
+  
+  	return true; }
+
+
+		
+	double calculator(double x , double y , char symbol){
+	        double answer;
+	        
+			if(symbol=='+'){
+				answer=x+y;	}
+				
+			else if(symbol=='-'){
+				answer=x-y; }
+				
+			else if(symbol=='*'){
+				answer=x*y; }
+				
+			else if(symbol=='/'){
+				answer=x/y; }
+				
+				return answer; }
+				
+				
+				
+    namespace rate{//namespace
+	
+    double savings( double precent , double income ){
+    	double total , rate;
+    	rate=(precent/100.0)*income; 
+        total = income - rate;
+        return rate;} }
+        
+        
+    namespace total{//namespace
+        	
+    double savings(double precent , double income){
+    	double tot;
+    	tot = precent - income; 
+		
+		return tot; } }
+	
+	
+	
+void add(string vocab[][2] , string word , string def , int counter){
+				vocab[counter - 1][0] = word;
+				vocab[counter - 1 ][1] = def; }
+		
+		
+		
+		void print(string list[][2] , int counter){
+		for(int x = 0 ; x<counter ; x++ ){
+     	cout<<list[x][0]<<endl; } }
+
+
+
+
+char upper(char &word){
+        
+    if(isupper(word)){
+    word = word; }
+    
+    else if(islower(word)){
+     word = toupper(word); }
+     
+     return word;}
+     
+     
+     
+     
+    string uppers(string &another ){
+    	
+    	for(int x = 0 ; x<another.length() ; x++ ){
+			
+			another[x] = toupper(another[x]); }
+			
+			return another; }
+
+
+
+
+double study (double cha, double days){
+    double task;
+    task  = cha / (days - 1 );
+    task = ceil(task);
+    return task; }
+    
+
+
+
+
+    string line( string &def ){
+    	string w1 , w2, w3 , w4;
+    	cin>>w1>>w2>>w3>>w4;
+    	def = w1+" "+w2+" "+w3+" "+w4;
+    	
+    	return def; }
+    	
+    
+		
+  	void devolpers(int x) { //recursive function
+
+       string devs[4] = {" Zainab Nader ", " Amgad Alhbdan ", "Shahad Alhasawi" , "Fatimah Aljaffal" };
+
+            if(x<4){
+			cout <<endl<<endl<<endl<<"                                                "<<devs[x]<<endl<<endl<<endl; 
+			++x;
+			devolpers(x); }
+			
+	
+	else return; } 
+  
+
+struct subinfo{ //global struct
+    
+    double days ;
+    double cha;
+    double tata; };
+    
+struct major{ //global struct
+    int cs=0;
+    int phys=0;
+};
+
+int main(){
+	char smile = 2; //for decoration puropuses
+	
+	
+	int programs;
+	char end= 'C';
+	
+	while(end == 'C'){
+		cout<<endl<<endl;
+		menu();//displying the menu
+	cout<<endl<<endl<<"enter the number of the program "<<smile<<" : ";
+	cin>>programs;
+	
+	
+	switch(programs){
+	case(1):{
+		//math program
+	float a , b, answer , c, answer2, x, y;
+   	char varible, symbol, gebra;
+   	
+   	
+   	cout<<endl<<"welcome to algebra solving program: "<<endl<<"\nselect your equation: "<<endl;
+	cout<<endl<<"                     "<<"1/ a + x = b \t"<<" 2/ ax^2 + bx + c = 0 \t  "<<"3/ ax + by = c \t "<<endl;
+	cout<<endl<<"                                         "<<"or simple calculator (4) : ";
+	cin>>gebra;
+   	
+   	switch(gebra){
+	
+	case('1'):{ //level one equation
+	cout<<endl<<"\nyour choice is "<<" a + x = b ";
+	cout<<endl;
+	cout<<"enter number (a) : ";
+	cin>>a;
+	cout<<"enter number (b) : ";
+	cin>>b;
+	cout<<"enter a varible symbol : ";
+	cin>>varible;
+	cout<<"your equation is : "<<a<<" + "<<varible<<" = "<<b<<endl;
+	 
+	if(a > 0){
+		answer = b - a;
+		cout<<varible<< " = " <<b<< " - "<<a<<endl;
+	}
+	
+	else if (a < 0){
+		answer = b + a;
+		cout<<varible<< " = " <<b<< " + "<<a<<endl;
+	}
+	
+	else if ( a == 0){
+		answer = b;
+	}
+	
+	cout<<varible<<" = "<< answer;
+	break; }
+	
+	case('2'):{ //level two equation
+	cout<<"\nyour choice is "<<"ax^2 + bx + c = 0";
+	cout<<endl;
+	cout<<"\nenter number (a) : ";
+	cin>>a;
+	cout<<"enter number (b) : ";
+	cin>>b;
+	cout<<"enter a varible (c) : ";
+	cin>>c;
+	cout<<"\n"<<"your equation is : "<<a<<"x^2"<<" + "<<b<<"X"<<" + "<<c<<" = "<<0<<endl;
+	answer= (-b)*(sqrt(pow(b,2)-4*a*c))/(2*a);
+	answer2= (-b)*(-sqrt(pow(b,2)-4*a*c))/(2*a);
+	cout<<"\nethier"<<" x = "<<answer<<" or "<<" x = "<<answer2;	
+		break;	} 
+		
+	case('3'):{
+	cout<<endl<<"\nyour choice is "<<" ax + by = c";
+	cout<<endl;
+	cout<<"enter number (a) : ";
+	cin>>a;
+	cout<<"enter number (b) : ";
+	cin>>b;
+	cout<<"enter number (y) : ";
+	cin>>y;
+	cout<<"enter number (c) : ";
+	cin>>c;
+	cout<<endl<<"your equation is : "<<a<<" x "<<" + "<<b<<" ( "<<y<<" ) "<<" = "<<c<<endl;
+	answer = (c-(b*y))/a;
+	cout<<"x"<< " = "<<c<<" - "<<b<<" * "<<y<<" / "<<a;
+	cout<<"\n"<<"x = "<<answer;
+		
+		
+		break; }
+		
+		case('4'):{
+		double x, y;
+		char symbol;
+		
+	    cout<<" enter tow numbers to proceed: ";
+		cin>>x>>y;
+		cout<<"choose the opreation [+,-,*,/] : ";
+		cin>>symbol;
+		
+		cout<<calculator(x , y , symbol);
+		
+		break; }
+		
+		
+		default:
+			cout<<"Error!"; }
+			break; }
+			
+			
+	case(2):{ //cv maker
+	string fname,sname , bdate, address, phone, email, web, cert , brief[120];
+	int wsize, esize , rsize;
+	cout<<endl<<"welcome to cv maker program "<<endl;
+	
+	char form , con = 'Y' , quis;
+	
+	cout<<"enter your first and second name: ";
+	cin>>fname>>sname;
+	uppers( fname ); // function to conver string letters to upper
+	uppers( sname );
+	cout<<"enter your birth year: ";
+	cin>>bdate;
+	cout<<"enter your phone number: ";
+	cin>>phone;
+	cout<<"enter your email: ";
+	cin>>email;
+	cout<<"enter your city: ";
+	cin>>address;
+	
+	cout<<"do you have a website? Y/N ";
+	cin>>quis;
+	quis = toupper(quis);
+	if(quis == 'Y'){
+		cout<<"enter your website: ";
+		cin>>web; }
+		
+	int counter = 0; // for brif size
+	
+	cout<<"write a small pargraph about yourself (120 maximum) "<<"\n"<<"write (stop) to stop "<<endl;
+	for(int x = 0 ; x<120 ; x++){
+		cin>>brief[x];
+		counter++;
+		 if(brief[x] == "stop"){
+		 	break;}}
+		
+	cout<<"how many work experince do You have: ";
+	cin>>wsize;
+	
+	string work[wsize], workdate[wsize];
+	
+	for(int x = 0 ; x<wsize ; x++){
+		cout<<" enter your #"<<x+1<<" experince"<<endl;
+		cin>>work[x]; }
+	for(int x = 0 ; x<wsize ; x++){
+		cout<<" enter the year for your #"<<x+1<<" experince"<<endl;
+		cin>>workdate[x]; }
+	
+	cout<<"how many education elments do you want to enter: ";
+	cin>>esize;
+	string education[esize], edudate[esize];
+	for(int x = 0 ; x<esize ; x++){
+		cout<<" enter your #"<<x+1<<" education elment: "<<endl;
+	    cin>>education[x]; }
+	for(int x = 0 ; x<esize ; x++){
+		cout<<" enter the year for your #"<<x+1<<" education elment: "<<endl;
+		cin>>edudate[x]; }
+	
+	cout<<"how many refrences do you want to enter: ";
+	cin>>rsize;
+	string refrences[rsize];
+	for(int x = 0 ; x<rsize ; x++){
+		cout<<" enter your #"<<x+1<<" refrence: "<<endl;
+		cin>>refrences[x];}
+		
+		
+	cout<<"how many languages do you speak: ";
+	int lsize;
+	cin>>lsize;
+	string lan[lsize];
+	for(int x = 0 ; x<lsize ; x++){
+		cout<<" enter your #"<<x+1<<" language: "<<endl;
+		cin>>lan[x];}
+		
+    string agian = "YES";
+    
+    int rate[5];
+	string skills[] = {"leadership", "business" ,"communcication" , "stress_handel", "office"  };
+		
+	for(int x = 0 ; x<5 ; x++){
+		cout<<"in scale one 1 to 5 enter your "<<skills[x]<<" skill rate: ";
+		cin>>rate[x]; }
+    
+	do{ // choose a form / change forms
+	cout<<endl<<"\nselect a form: "<<endl;
+	cout<<endl<<1<<"\t"<<2<<"\t"<<3<<"\t"<<4<<" : ";
+	cin>>form;
+	
+   	
+   	switch(form){
+	
+	case('1'):{
+
+		
+		cout<<"--------------------------------------------------------";
+	
+	cout<<endl<<endl<<endl<<"                           "<<fname<<" "<<sname;
+	
+     cout<<"\n";
+     for(int x = 0 ; x<counter - 1 ; x++){
+		cout<<brief[x]<<" ";
+		if ( x % 5 == 0){
+			cout<<"                     \n"; } }
+    cout<<endl;			
+	cout<<endl<<endl;
+	cout<<"personal info"<<endl;
+	cout<<endl;
+	cout<<"Address: "<<"\n"<<address<<"\t ";
+	
+	for(int x = 0 ; x<wsize ; x++){
+		cout<<"                                          ";
+		cout<<"work experince #"<<x+1<<" "<<work[x]<<"   "<<workdate[x]<<"\n"; }
+	
+	
+	cout<<"phone number: "<<"\n"<<phone<<"\t ";
+	
+		for(int x = 0 ; x<esize ; x++){
+		cout<<"                               ";
+		cout<<"edeucation ceirtfacte #"<<x+1<<" "<<education[x]<<"   "<<edudate[x]<<"\n"; }
+	
+	cout<<"email: "<<"\n"<<email<<"\t ";
+	
+	for(int x = 0 ; x<esize ; x++){
+	cout<<"                               ";
+		cout<<"refrence #"<<x+1<<" "<<refrences[x]<<"\n"; }
+	
+	cout<<"website : "<<"\n"<<web<<"\t "<<endl;
+	cout<<endl;
+	
+	
+	for(int i= 0 , y =0 ; i<5 ; i++){
+	cout<<skills[y]<<"     ";
+	for(int x = 0 ; x<rate[y] ; x++){
+		cout<<"*";}
+	if( rate[y] < 5 &&  rate[y] > 3){
+		cout<<"    advanced "<<"\t\t\t\t"<<endl; }
+	else if( rate[y] <= 3){
+		cout<<"    good "<<"\t\t\t\t"<<endl; }
+	else if( rate[y] > 4){
+		cout<<"    Expert "<<"\t\t\t\t"<<endl; }
+	y++;}
+		
+	cout<<endl;
+	cout<<"languages: ";
+	for(int x = 0 ; x<lsize ; x++){
+		cout<<lan[x]<<" ";}
+	cout<<endl<<endl;
+	
+	break; }
+	
+	case('2'):{
+	cout<<"\n\n----------------------------------------------------------------------------------------"<<endl;
+    cout<<fname<<" "<<sname<<endl;
+    cout<<"Address : "<<address<<"\t \t WWW : "<<web<<endl;
+    cout<<"Phone : "<<phone<<"\nE-mail : "<<email<<endl<<endl;
+   
+    for(int i = 0 ; i < counter -1 ; i++){
+        cout<<brief[i]<<" ";
+    }
+    
+    cout<<"\n\nEXPERIENCE ";
+
+    cout<<"\n----------------------------------------------------------------------------------------"<<endl;
+    for(int x = 0 ; x<wsize ; x++){
+        cout<<" - "<<workdate[x]<<"\t\t | "<<work[x]<<endl;
+        cout<<"\n\n"<<endl;
+       
+    }
+    cout<<"----------------------------------------------------------------------------------------"<<endl;
+    
+    cout<<"\n\nEDUCATION ";
+
+    cout<<"\n----------------------------------------------------------------------------------------"<<endl;
+    
+    for(int x = 0 ; x<esize ; x++){
+        cout<<" - "<<edudate[x]<<"\t\t | "<<education[x]<<endl;
+        cout<<"\n\n"<<endl;
+    }
+    cout<<"----------------------------------------------------------------------------------------"<<endl;
+		break;	} 
+		
+	case('3'):{
+cout <<"**************************"<<endl;
+cout <<"Full Name: "<<fname<<" "<<sname<<endl;
+for(int x = 0 ; x<counter - 1 ; x++){
+    cout <<(brief[x])<<" "; }
+    
+	cout <<"**************************"<<endl;
+	cout <<"                           Personal info: "<<endl;
+	cout <<"#### birth date: "<< bdate<<"                           #### address: "<<address<<endl;
+	cout<<"#### phone number: "<<phone<<"                           #### email: "<<email<<endl;
+	cout<<"                                                         #### Web site: "<<web<<endl;
+	
+	cout <<"**************************"<<endl;
+	cout <<"                           Languages "<<endl;
+	for(int x = 0 ; x<lsize ; x++){
+	cout<<"#### "<<lan[x]<<endl;}
+	cout <<"**************************"<<endl;
+	cout <<"                           Education "<<endl;
+	for(int x = 0 ; x<esize ; x++){
+	cout<<"#### "<<education[x]<<"  		|| Date"<<edudate[x]<<endl;}
+	
+	
+	cout <<"**************************"<<endl;
+	cout <<"                           Word Experience: "<<endl;
+	for(int x = 0 ; x<wsize ; x++){
+	cout<<"#### "<<work[x]<<"  		|| Date"<<workdate[x]<<endl;}
+	
+	
+	cout <<"**************************"<<endl;
+	cout <<"                           Refrences "<<endl;
+	for(int x = 0 ; x<rsize ; x++){
+	cout<<"#### "<<refrences[x]<<endl;}
+	
+
+	
+	string ok;
+	cout<<" \n\n\n\t\t\t\tpress any key to exit";
+	cin>>ok;
+	
+		break; }
+	
+	case('4'):{
+    
+    cout<<"                                                                 "<<endl;		
+cout<<fname<<sname<<"                      "<<endl;
+cout<<"______________________"<<endl;
+cout<<address<<"                         "<<endl;
+cout<<bdate<<"                         "<<endl;
+cout<<phone<<"                          "<<endl;
+cout<<email<<"                           "<<endl;
+cout<<"______________________"<<endl;
+cout<<brief<<"                           "<<endl;
+cout<<"PROFESSIONAL EXPERIENCE"<<endl;
+cout<<"______________________"<<endl;
+for (int x =0 ; x<wsize; x++){
+	cout<<"*"<<work[x]<<"|| Date "<<workdate[x]<<endl;
+}
+cout<<"EDUCATION"<<endl;
+cout<<"______________________"<<endl;
+for (int x =0 ; x<esize; x++){
+	cout<<"*"<<education[x]<<"|| Date"<<edudate[x]<<endl;
+}
+cout<<"ADDITIONAL SKILLS"<<endl;	
+cout<<"______________________"<<endl;   	
+cout<<"Fluent in"<<endl;
+for (int x =0 ; x<lsize; x++){
+cout<<"*"<<lan[x]<<endl;	
+}   
+cout<<"Refrences"<<endl;
+for (int x =0 ; x<rsize; x++){
+cout<<refrences[x]<<endl;	}
+    
+		break; }
+		
+		
+		default:
+			cout<<"Error!"; } 
+			
+			cout<<"do you want to try another form? yes/no ";
+			cin>>agian;
+			agian = uppers( agian ); }while (agian == "YES");
+			
+			break;  }
+			
+			
+		
+		case(3):{
+			
+	string vocab[57][2] = { //2d array
+	"achievement" , "something important that you succeed in doing by your own efforts",
+	"acknowledged","recognized as being good or important", 
+	"adversity" , " a very hard situation " ,
+	"aspire to " , "strong desire to get or achieve something ", 
+	"confront", "to deal with something very difficult or unpleasant in a brave way" , 
+	"constrained" , "forced to do something against your will","embody","to be a very good example of an idea",
+	"inclined" , " wanting to do something  ", 
+	"inherently", "being a part of something that cannot be separated from it",
+	"pursue ", " trying to achieve something over a long period of time ",
+	"resolve"," strong determination ", 
+	"version", "a copy of something that has been changed to be slightly different",
+	"advocate ", "someone who publicly support someone", 
+	"authenticity"," the quality of being real  ", 
+	"cause", "the reason",
+	"diverse ", "different from each other", 
+	"empower"," to give someone more control over their own life ", 
+	"exponential", " becoming more and more rapid",
+	"funding ","the money that provided by an organization for a particular purpose", 
+	"humanitarian","preventing unfairtreatment of people",
+	"humble ", "being too proud about yourself", 
+	"perceive"," to notice, see, or recognize something ",
+	"personify", "be a typical example of something",
+	"phenomenon ", "something that happens or exist in society, science, or nature", 
+	"allude"," mention someone or something indirectly ",
+	"concept", "idea of how something is, or how something should be done ",
+	"distinguish ", "to be the thing that makes someone or something different or special", 
+	"evolve"," develop and change gradually over a long period of time ",
+	"individual", "considered separately from other people or things in the same group ",
+	"liberate " , "to set someone free from their feelings",
+	"pedestrian", "someone who is walking, especially along a street",
+	"priority", "the thing that you think is most important",
+	"promote", "to help sell a new product by offering it at a reduced price",
+	"sophisticated", "having a lot of knowledge and experience of complicated subjects",
+	"urban", "relating to towns and cities",
+	"feature", "to include or show something as a special or important part of something ",
+	"in theory", "something Seems to be true or possible as an idea",
+	"investment", "the use of money to get a profit, or something you buy",
+	"mentally", "connected or related to the mind ",
+	"minimize", "to reduce something that is undesirable to the smallest possible",
+	"negative", " harmful, unpleasant",
+	"neutral", "something chosen to avoid expressing any strong opinion or feeling ",
+	"potential", "likely to develop into a particular type of person or thing in the future",
+	"remove", "to take something away from the place where it is",
+	"residence", "the place where someone lives",
+	"tend", "to be likely to behave in a particular way",
+	"visualize", "to form a picture of someone or something in your mind",
+	"accurately", "correct and true in very details ",
+	"assumption", "something that you think is true although you have no definite proof ",
+	"colleague", "someone you work or study with",
+	"competence", "go along with something or match it",
+	"equipped with", "comes with or provided with",
+	"extracurricular", " an activity that is not a part of the course",
+	"innate", "something you are born with",
+	"nurture", "to help a plan, idea, feeling to develop",
+	"period", " a particular length of time with a beginning and an end ",
+	"theoretically", "used to say what is supposed to be true in a particular situation"};
+	
+	
+	string empty[50][2]; // for the user to edit
+	
+
+
+
+
+
+	int  choice , counter = 0 , size = 57;
+    string word, def , another = "YES";
+	bool key = false;
+	
+	
+	cout<<endl<<endl<<"welcome to the dictionry program "<<endl<<endl<<"choose a service: "
+	      "\n1 - add a word "<<"              "<<"2 - search for a word "<<endl<<
+	      "3 - delete a word "<<"             "<<"4 - print all the words "<<endl<<endl;
+	      
+	while( another == "YES"){
+	
+	cout<<"choose: ";
+	cin>>choice;
+	
+	switch(choice){
+		
+		case(1):{ // user will add a new word with its defention
+			string enter;
+			cout<<"your choice is add a new word to the dictinory"<<endl;
+			if ( counter < 50 - 1 ){
+				counter++;
+				cout<<"enter the new word : ";
+			    cin>>word;
+			    
+		     	cout<<"defention (4 words only): \n";
+		     	def = line( def ); // a function to take 4 strings
+		    	
+		    	
+				add (empty , word , def , counter); /*a function to add new words to the array*/ }
+				
+				else
+				   cout<<"the dictinory is full! there is no space";
+			break; }
+			
+			case(2):{ //search for a word in the dictinory
+			key = false;// to set key for false every time you enter the case
+			cout<<"your choice is search for a word"<<endl;
+			cout<<"enter the word: ";
+			cin>>word;
+			for(int x =0 ; x<=counter ; x++){
+				
+				
+				if (word == vocab[x][0] ){// to search in the first array
+					cout<<vocab[x][0]<<endl;
+					cout<<vocab[x][1]<<endl;
+					key = true; } 
+					
+					else if(word == empty[x][0] ){// to search in the secind array
+					cout<<empty[x][0]<<endl;
+					cout<<empty[x][1]<<endl;
+					key = true; } }
+			
+					if (key == false){cout<<"the word ("<<word<<" ) was not found"; }
+					break; }
+			
+			case(3):{ //deleting works like shifting
+			key = false;
+			cout<<"your choice is delete a word"<<endl;//the users can only delete the words they add
+			cout<<"enter the word: ";
+			cin>>word;
+			for(int x =0 ; x<=counter ; x++){
+				
+				if (word == empty[x][0]){
+					empty[x][1] = empty[x+1][1];
+					empty[x][0] = empty[x+1][0];
+					counter--;
+					key = true; } }
+					
+					if (key == true){cout<<"the word ("<<word<<" ) was deleted"; }
+					if (key == false){cout<<"the word ("<<word<<" ) was not found"; }
+			break;}
+			
+				case(4):{ //print whole words without defention
+					char k;
+					cout<<"choose how to print: "<<"\n1 sort randomly"<<"\n2 sort from A to Z :     ";
+					cin>>k;
+					
+					switch(k){
+						case('1'):{ //to print the whole words
+					print( vocab , size);
+					print( empty , counter);
+		
+							
+							break; }
+						
+						case('2'):{ //to sort the words then print
+						alphpet( vocab, size ); // function to print 2d array
+						alphpet( empty, counter );
+						
+						print( vocab , size);// function to print 2d array
+						print( empty , counter);
+					
+							break; }}
+			 
+			
+			break; }
+			
+			
+			
+			 }
+			
+			
+			
+			cout<<"\ndo u want to apply another service yes/no : ";
+			cin>>another;
+			
+			another = uppers(another );//function to convert strings to upper cases
+			
+			if(another != "YES"){
+				break;} }
+		
+			break;	}
+			
+		case(4):{ // organize study schudal
+char dis, w, days[1];
+    int sub ;
+    
+  
+    
+    cout<<" would you like to organize your studying schedule ? (y- yes n- no): ";
+    cin>>dis;
+    w = upper(dis);
+    
+        cout<<"--------------------------------------------------------------------"<<endl;
+        if (w == 'Y'){
+            
+            cout<<" how many subjects do you have ? ";
+            cin>>sub;
+            
+            subinfo stud[sub] ; // array of struct
+            
+            if(sub>=1){
+                
+                for(int i = 0 ; i < sub ; i++ ){
+                    cout<<" for subject #"<<i+1<<endl;
+                    cout<<" how many days left till your exam ? ";
+                    cin>>stud[i].days;
+                      days[i] = stud[i].cha ;
+                    
+                    cout<<" how many chapters do u have to study ? ";
+                    cin>>stud[i].cha;
+                    
+                    
+                    stud[i].tata = study(stud[i].cha, stud[i].days);
+                    cout<<" - you have to finsh "<<stud[i].tata<<" chapter a day "<<endl;
+                    
+                    cout<<" - on day "<<stud[i].days -1 <<" do a full review \n - day "<<stud[i].days<<" is your exam day  ";
+                    cout<<"\n *---------------------"<<endl;
+                    
+                    
+                }}//end if
+            
+            else{
+                cout<<" there is nothing to work with "<<endl;} // when sub less than 1 meaning 0
+            
+           cout<<"-----------------------------------------------------------------------------------------------------------\n";
+            
+	       fstream examtables ; // writ file
+           examtables.open("study_table.txt", ios::out );
+           if(examtables.is_open()){
+       
+        	for(int i = 0; i < sub ; i++ ){
+    
+                examtables<<"| subject "<<i+1<<" | days: "<<stud[i].days <<" | chapters: " <<stud[i].cha<<" | study: "<<stud[i].tata<<" chapters a day "
+                <<" | day "<<stud[i].days -1<<": full review "<<" | day "<<stud[i].days<<": exam day | "<<endl;
+                examtables<<"-----------------------------------------------------------------------------------------------------------\n";
+            }
+		examtables.close();}//end for#2
+		
+	    fstream show ;
+        show.open("study_table.txt", ios::in ); //read file
+       if(show.is_open()){
+    	string lines;
+        while(getline(show , lines)){
+       	
+       	cout<<lines<<endl; }
+		
+		show.close();}
+		cout<<endl<<"you can copy your table from a file called study_table "<<endl;
+            
+    }//end for#1
+    
+    
+        
+        if (w == 'N'){// go back to menu
+            cout<<" exit "; // go back to menu
+        }
+        
+        
+        
+        else if (w != 'Y' && w != 'N'){
+            cout<<"invalid"; // when entering an invalid input
+        }
+        
+			break; }
+			
+			
+		case(5):{
+		 // major quiz
+		struct major counter ;
+    int q=10 ;
+    char ans;
+    string *questions{ new string[q] {//dynamic array and pointer
+        //cs
+        " Are you curious about how computers and humans communicate? " ,
+        " Do you consider yourself imaginative? ",
+        " Is math one of your favorite subjects? ",
+        " Do you enjoy solving problems? ",
+        " Are you interested in computer programming? ",
+        " Do you communicate well? ",
+        " Are you able to think abstractly? ",
+        " Do you consider yourself a team player? ",
+        " Are you detail oriented? ",
+        " Are you fascinated by how computers function? "
+        
+    }} ;
+    
+    
+    cout<<" for the following questions answer by typing y - yes or n - no "<<endl;
+    
+    
+   
+        for(int i = 0 ; i < 10; i++){
+            cout<<i+1<<"- "<<questions[i]<<endl;
+            cin>>ans;
+            if(ans== 'y'){
+                counter.cs++;
+            }
+            else
+                counter.cs= counter.cs;
+        }
+    
+    delete[] questions;
+    
+   
+    questions = new string[q] {
+            //phy
+            " Are you interested in arithmetic, algebra, geometry, calculus, statistics, and their applications? ",
+            " Do you like to perform complex calculations as part of the analysis and evaluation of data, using computers? ",
+            " Do you like to direct testing and monitoring of contamination of radioactive equipment, and recording of personnel and plant area radiation exposure data? ",
+            " Do you like working with ideas, and require an extensive amount of thinking? ",
+            " Do you like searching for facts and figuring out problems mentally? ",
+            " Do you like work that includes practical, hands-on problems and solutions? ",
+            " Do you like working with plants, animals, and real-world materials like wood, tools, and machiner?",
+            " Do you like working with forms, designs and patterns? ",
+            " Do you like work that requires self-expression and work that can be done without following a clear set of rules? ",
+            " Are you intersted in energy? ",
+        
+        
+    } ;
+    
+    
+    for(int i = 0 ; i < 10; i++){
+        cout<<i+11<<"- "<<questions[i]<<endl;
+        cin>>ans;
+        if(ans== 'y'){
+            counter.phys++;
+        }
+        else
+            counter.phys= counter.phys;
+    }
+    
+    
+    char h=3;
+    if(counter.cs > counter.phys){
+        cout<<" you fit a computer science major \n congrats you are a programer !! ";
+        
+    }
+    else if (counter.cs < counter.phys){
+        cout<<" you fit physics ... ";
+        
+    }
+    else
+        cout<<" you can do both , you are smart  "<<h<<endl; //when even
+		
+			break; }
+			
+			
+			
+			
+			
+			case(6):{//money saveings plan
+double money,total = 0 ,rate, per;
+int plan;
+string name;
+ cout<<"       welcome to saving money program     "<<"\n";
+ cout<<"\n"<<endl;
+ cout<<"please enter your name: "<<"\n";
+ cin>>name;
+ 
+ cout<<"\n"<<endl;
+ cout<< "welcome " << name<<"\n"<<" i hope you save your monay well from this program: "    ;	
+ cout<<"\n"<<endl;
+ cout<<"please enter the amount of your income: "<<"\n";	
+ cin>>money;
+	cout<<"\n"<<endl;
+{
+string h;
+
+	    cout << "choose one of the plan " <<"\n";
+        cout << "1- minimum plan ? " <<"\n";
+        cout << "2- medium plan ?" <<"\n";
+        cout << "3- maximum plan ?" <<"\n";
+        cout << "4- optional plan ?" <<"\n";
+        cout << " enter your plan: " <<"\n";
+        cin >>plan;	
+	}
+	if (plan == 1){
+    cout <<"your plan is"<<"\n"<< "plan 1"<< "\n";
+    rate = rate::savings( 30, money ); // function with namespace
+    total = total::savings(money , rate); // function with namespace
+    }
+    else if (plan == 2){
+        cout << "your plan is"<<"\n"<<"plan 2"<<"\n";
+           rate = rate::savings( 50.0 , money );
+           total = total::savings(money , rate);
+    }
+    
+	else if (plan == 3){
+            cout<< "your plan is"<<"\n"<<"plan 3"<<"\n";
+            rate = rate::savings( 70.0 , money );
+            total = total::savings(money , rate);
+			}
+     else if (plan == 4){
+            cout<< "your plan is"<<"\n"<<"plan 4"<<"\n";
+            cout<<"enter the percentage of savings ";
+            cin>> per;
+            rate = rate::savings( per , money );
+            total = total::savings(money , rate);
+			}   
+			   
+    cout<< "your income is : "<< money << " SR"<<"\n";
+    cout<< "your saving is : "<< rate << " SR"<<"\n";
+    cout<< "your remainig amount is : "<< total << " SR"<<"\n";
+    
+    cout<<"\n"<<endl;
+				break;	}
+			
+			case(7):{ //help to understand a lesson
+				
+  int level, choice;
+  cout << "  **************** " << endl;
+  cout << " | Hello , this program help you in your courses |" << endl;
+  cout << "  **************** " << endl;
+  cout << "                                                  " << endl;
+  cout<<  " First choose your level , then choose the course and copy the linke :) "<<endl;
+  cout<<  "__________________________"<<endl;
+    cout << "                                                  " << endl;
+  cout << "Please choose your level " << endl;
+  cout << " 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 : "<<endl;
+  cin >> level;
+
+  if (level == 4) {
+    cout << "choose the course that you need help :  " << endl;
+    cout << "1- Introduction to computer science " << endl;
+    cout << "2- Physics " << endl;
+    cout << "3- Calculus " << endl;
+    cin >> choice;
+    
+        switch(choice) {
+          case 1:
+             cout << "https://youtube.com/playlist?list=PL1DUmTEdeA6IUD9Gt5rZlQfbZyAWXd-oD" << endl; 
+             break;
+          case 2:
+             cout << "https://youtube.com/playlist?list=PLfhQ90MyYJQHyzalB5IiW6K13cYMG8mpP" << endl; 
+             break;
+          case 3:
+             cout << "https://youtube.com/playlist?list=PLfhQ90MyYJQFxw4bfxWA9yJc7K1KV33Fi" << endl; 
+             break;
+         default:
+            cout << "worng input!" << endl;
+        }
+
+    }else if (level == 5) {
+      cout << "choose the course that you need help :  " << endl;
+      cout << "1- Introduction to Statistics and Probability" << endl;
+      cout << "2- Programming principles " << endl;
+      cout << "3- Electronics " << endl;
+      cin >> choice;
+    
+        switch(choice) {
+          case 1:
+             cout << "https://youtube.com/playlist?list=PLTNMv857s9WXg9tRi7wHU9cMgL1x140dO" << endl; 
+             break;
+          case 2:
+             cout << "https://youtube.com/playlist?list=PLCNyOp4mw2ifYOU4trWfkPcE2YzIGHk1s" << endl; 
+             break;
+          case 3:
+             cout << "https://youtube.com/playlist?list=PLJMl_3Mh3jvPK6Or3l19YvXfu4bFckYBF" << endl; 
+             break;
+          default:
+            cout << "worng input!" << endl;
+        }
+
+    }
+    else if (level == 6) {
+      cout << "choose the course that you need help :  " << endl;
+      cout << "1- Principles of Information Systems" << endl;
+      cout << "https://youtube.com/playlist?list=PL1DUmTEdeA6LXpHtaTyRBok5XnpNzRIfA" << endl; 
+
+
+    }else if (level ==7){
+		cout<<"choose the course that you need help :  "<<endl;
+		cout<<"1-Fundamentals of Communications and Networks"<<endl;
+		cout<<"2-Object-oriented programming"<<endl;
+		cout<<"3- Digital hardware"<<endl;
+		cin >> choice;
+		
+		switch(choice) {
+          case 1:
+             cout << "https://www.youtube.com/playlist?list=PLkpG3YKjv6p5XwncCUIlPFSBNnN4mnhGA" << endl; 
+             break;
+          case 2:
+             cout << "https://m.youtube.com/playlist?list=PLfay0LLBd0wiJSaLmXG0aJ1ECgSuISjp5" << endl; 
+             break;
+          case 3:
+             cout << "https://youtu.be/CPNOJGIe8F4" << endl; 
+             break;
+          default:
+            cout << "worng input!" << endl;
+        }
+    }else if (level ==8){
+		cout<<"choose the course that you need help :  "<<endl;
+		cout<<"1-Object-oriented programming 2"<<endl;
+		cout<<"2-Information Technology Architecture Management"<<endl;
+		cin >> choice;
+		switch(choice) {
+          case 1:
+             cout << "https://youtube.com/playlist?list=PLCNyOp4mw2ifYOU4trWfkPcE2YzIGHk1s" << endl; 
+             break;
+          case 2:
+             cout << "https://youtube.com/playlist?list=PLCNyOp4mw2ic_nt1HYVaEK43JFDF4yQ-i" << endl; 
+             break;
+          default:
+            cout << "worng input!" << endl;
+        }
+    }else if (level ==9){
+		cout<<"choose the course that you need help :  "<<endl;
+		cout<<"1-Discrete mathematics"<<endl;
+		cout<<"2-Data Structuring"<<endl;
+		cout<<"3-Database Concepts & Design"<<endl;
+		cin >> choice;
+		switch(choice) {
+          case 1:
+             cout << "https://youtube.com/playlist?list=PLxIvc-MGOs6gZlMVYOOEtUHJmfUquCjwz" << endl; 
+             break;
+          case 2:
+             cout << "https://youtube.com/playlist?list=PLCNyOp4mw2ic_nt1HYVaEK43JFDF4yQ-i" << endl; 
+             break;
+          case 3:
+             cout << "https://youtube.com/playlist?list=PL37D52B7714788190" << endl; 
+             break;
+          default:
+            cout << "worng input!" << endl; 
+        }
+    }
+
+    else if (level ==10){
+		cout<<"choose the course that you need help :  "<<endl;
+  cout<<"1-opreating system"<<endl;
+  cout<<"2-Analysis and decision of algorithims"<<endl;
+  cout<<"3-Logic and methods of proof"<<endl;
+  cin>>choice;
+  switch(choice){
+    case 1 :
+      cout<<"https://youtube.com/playlist?list=PLKlTaCM87WvrO0RElCsK30uS-ylzRLgFM"<<endl;
+      break;
+    case 2 : 
+      cout<<"https://youtube.com/playlist?list=PL9fwy3NUQKwa6f1e0rrpmQUpME6Sm7ODv"<<endl;
+      break;
+    case 3 :
+      cout<<"https://youtube.com/playlist?list=PL9fwy3NUQKwa6f1e0rrpmQUpME6Sm7ODv"<<endl;
+             break;
+          default:
+            cout << "worng input!" << endl; 
+        
+		}
+					}
+		else if (level ==11){
+		cout<<"choose the course that you need help :  "<<endl;
+		cout<<"1-Human-computer connection"<<endl;
+		cout<<"2-Web-based systems"<<endl;
+		cout<<"3-Confidentiality and protection of computer data"<<endl;
+		cout<<"4-Software Engineering "<<endl;
+		cin >> choice;
+		switch(choice) {
+          case 1:
+             cout << "https://youtu.be/NwxRpGHnd9c" << endl; 
+             break;
+          case 2:
+             cout << "https://youtube.com/playlist?list=PLmfNYFrBr4j94sXQ7E-pbVVAGmZ28TVkP" << endl; 
+             break;
+          case 3:
+             cout << "https://youtu.be/EoAID_sCDns" << endl; 
+             break;
+          case 4:
+        	cout<<"https://youtube.com/playlist?list=PLquXYvvn8Qk-Yb-ytydSIePeSwTtQmPSX"<<endl;
+        	break;
+          default:
+            cout << "worng input!" << endl; 
+        }
+    }			
+	else if (level ==12){
+		cout<<"choose the course that you need help :  "<<endl;
+		cout<<"1-Numerical analysis"<<endl;
+		cout<<"2-Language theory"<<endl;
+		cout<<"3-Computer Architecture"<<endl;
+		cin >> choice;
+  switch(choice){
+    case 1 :
+      cout<<"https://youtube.com/playlist?list=PLKSuQpcl8TETiWM3kZaMg0Kq_ilOI7kCR"<<endl;
+      break;
+    case 2 : 
+      cout<<"https://youtu.be/7fW_8bDGdX0"<<endl;
+      break;
+    case 3 :
+      cout<<"https://youtube.com/playlist?list=PLfhnBieD_d5W2GEdmUdNcbgohuFhceDI4"<<endl;
+             break;
+          default:
+            cout << "worng input!" << endl; 
+        
+		}
+					}
+					else{
+        cout << "worng input!" << endl; 
+    }				
+				break; }
+			
+				case(8):{
+				devolpers(0);//recursive function
+       	
+				break; }
+				
+				default:
+					cout<<"Error!";/*invalid program number*/ }//end of the main switch
+	
+	
+	
+	cout<<endl<<endl<<"                          "<<"to { exit enter (X) }"<<"\t"<<" { go back to the menu (C) }  :  ";
+	cin>>end;
+	
+	upper(end);
+	
+		if (end == 'X'){
+			
+				break;   }
+				
+				else if( end != 'X' && end != 'C'){
+					cout<<"Error !!"; }
+}
+				
+
+	return 0; }
